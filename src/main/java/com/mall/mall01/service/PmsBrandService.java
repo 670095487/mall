@@ -10,4 +10,10 @@ import java.util.List;
 public interface PmsBrandService {
 
     List<PmsBrand> findAllPmsBrands();
+
+    PmsBrand createBrand(PmsBrand createItem);
+
+    int updatedBrand(long id, PmsBrand pmsBrand);
+
+    List<PmsBrand> findPmsBrandByPage(int pageNum, int pageSize);
 }
