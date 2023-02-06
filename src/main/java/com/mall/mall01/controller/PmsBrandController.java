@@ -22,7 +22,7 @@ public class PmsBrandController {
 
     @GetMapping
     public CommonResult<List<PmsBrand>> findAll(){
-        return
+        return CommonResult.success(pmsBrandService.findAllPmsBrands());
     }
 
 }
