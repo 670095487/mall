@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9009
 
 spring:
   datasource:
@@ -7,9 +7,9 @@ spring:
     username: root
     password: ${pwd}
   redis:
-    host: localhost # Redis服务器地址
+    host: ${aliyun} # Redis服务器地址
     database: 0 # Redis数据库索引（默认为0）
-    port: 6379 # Redis服务器连接端口
+    port: 2632 # Redis服务器连接端口
     password: # Redis服务器连接密码（默认为空）
     jedis:
       pool:
@@ -23,3 +23,10 @@ mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
     - classpath*:com/**/mapper/*.xml
+# 自定义redis key
+redis:
+  key:
+    prefix:
+      authCode: "portal:authCode:"
+    expire:
+      authCode: 120 # 验证码超期时间
