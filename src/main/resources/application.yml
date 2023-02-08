@@ -1,5 +1,5 @@
 server:
-  port: 9009
+  port: ${port}
 
 spring:
   datasource:
@@ -29,4 +29,4 @@ redis:
     prefix:
       authCode: "portal:authCode:"
     expire:
-      authCode: 120 # 验证码超期时间
+      authCode: 300 # 验证码超期时间
