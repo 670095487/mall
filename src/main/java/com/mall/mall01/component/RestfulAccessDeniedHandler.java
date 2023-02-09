@@ -1,7 +1,10 @@
 package com.mall.mall01.component;
 
+import cn.hutool.json.JSONUtil;
+import com.mall.mall01.common.CommonResult;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,13 +14,19 @@ import java.io.IOException;
 /**
  * @author yunN
  * @date 2023/02/08.
+ *
+ * restful类型的权限不足handler
  */
+@Component
 public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
 
     @Override
-    public void handle(HttpServletRequest httpServletRequest,
-                       HttpServletResponse httpServletResponse,
+    public void handle(HttpServletRequest request,
+                       HttpServletResponse response,
                        AccessDeniedException e) throws IOException, ServletException {
-
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        response.getWriter().println(JSONUtil.parse(CommonResult.forbidden(e.getMessage())));
+        response.getWriter().flush();
     }
 }

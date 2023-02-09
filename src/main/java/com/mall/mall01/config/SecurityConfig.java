@@ -7,7 +7,7 @@ import com.mall.mall01.dto.AdminUserDetails;
 import com.mall.mall01.mbg.model.UmsAdmin;
 import com.mall.mall01.mbg.model.UmsPermission;
 import com.mall.mall01.service.UmsAdminService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -34,11 +34,13 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled=true)
-@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final UmsAdminService adminService;
-    private final RestfulAccessDeniedHandler restfulAccessDeniedHandler;
-    private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+    @Autowired
+    private UmsAdminService adminService;
+    @Autowired
+    private RestfulAccessDeniedHandler restfulAccessDeniedHandler;
+    @Autowired
+    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {

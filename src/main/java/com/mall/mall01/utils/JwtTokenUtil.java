@@ -4,7 +4,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,7 +21,6 @@ import java.util.Map;
  * @date 2023/02/08.
  */
 @Component
-@UtilityClass
 @Slf4j
 public class JwtTokenUtil {
 
@@ -51,7 +49,7 @@ public class JwtTokenUtil {
         String username;
         try {
             Claims claims = getClaimsFromToken(token);
-            username =  claims.getSubject();
+            username = claims.getSubject();
         } catch (Exception e) {
             username = null;
         }
@@ -106,15 +104,15 @@ public class JwtTokenUtil {
                     .parseClaimsJws(token)
                     .getBody();
         } catch (Exception e) {
-            log.info("JWT格式验证失败:{}",token);
+            log.info("JWT格式验证失败:{}", token);
         }
         return claims;
     }
 
-    private static Date generateExpirationDate() {
+    private Date generateExpirationDate() {
         return Date.from(LocalDateTime.now()
-                        .plus(expiration, ChronoUnit.SECONDS)
-                        .toInstant(ZoneOffset.UTC));
+                .plus(expiration, ChronoUnit.SECONDS)
+                .toInstant(ZoneOffset.UTC));
     }
 
 }

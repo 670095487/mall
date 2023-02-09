@@ -3,8 +3,11 @@ package com.mall.mall01.mbg.mapper;
 import com.mall.mall01.mbg.model.UmsAdmin;
 import com.mall.mall01.mbg.model.UmsAdminExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface UmsAdminMapper {
     int countByExample(UmsAdminExample example);
 

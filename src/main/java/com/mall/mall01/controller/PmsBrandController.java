@@ -6,6 +6,7 @@ import com.mall.mall01.mbg.model.PmsBrand;
 import com.mall.mall01.service.PmsBrandService;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class PmsBrandController {
     private final PmsBrandService pmsBrandService;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     public CommonResult<List<PmsBrand>> findAll() {
         return CommonResult.success(pmsBrandService.findAllPmsBrands());
     }

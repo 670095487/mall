@@ -2,13 +2,14 @@ package com.mall.mall01.dto;
 
 import com.mall.mall01.mbg.model.UmsAdmin;
 import com.mall.mall01.mbg.model.UmsPermission;
-import com.mall.mall01.service.UmsAdminService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author yunN
@@ -20,38 +21,45 @@ public class AdminUserDetails implements UserDetails {
     private final UmsAdmin umsAdmin;
     private final List<UmsPermission> permissionList;
 
+    /**
+     *
+     * @return 返回此用户的所有权限
+     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return permissionList.stream()
+                .filter(p -> p.getValue() != null)
+                .map(p -> new SimpleGrantedAuthority(p.getValue()))
+                .collect(Collectors.toList());
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return umsAdmin.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return umsAdmin.getUsername();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return umsAdmin.getStatus().equals(1);
     }
 }
