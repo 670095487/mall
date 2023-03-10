@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.Categories;
 import com.mall.mall01.mbg.model.CategoriesExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CategoriesMapper {
     int countByExample(CategoriesExample example);

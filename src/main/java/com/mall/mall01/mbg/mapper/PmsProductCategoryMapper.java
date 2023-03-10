@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.PmsProductCategory;
 import com.mall.mall01.mbg.model.PmsProductCategoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PmsProductCategoryMapper {
     int countByExample(PmsProductCategoryExample example);

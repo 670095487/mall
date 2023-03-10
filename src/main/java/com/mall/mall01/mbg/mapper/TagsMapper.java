@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.Tags;
 import com.mall.mall01.mbg.model.TagsExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TagsMapper {
     int countByExample(TagsExample example);

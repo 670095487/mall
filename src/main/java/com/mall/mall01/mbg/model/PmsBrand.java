@@ -1,6 +1,10 @@
 package com.mall.mall01.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 public class PmsBrand implements Serializable {
@@ -9,6 +13,7 @@ public class PmsBrand implements Serializable {
     private String name;
 
     @ApiModelProperty(value = "首字母")
+    @Max(value = 2, message = "首字母最大长度不能超过2位")
     private String firstLetter;
 
     private Integer sort;

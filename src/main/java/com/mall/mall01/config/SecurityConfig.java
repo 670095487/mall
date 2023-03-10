@@ -66,13 +66,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/admin/login", "/admin/register")// 对登录注册要允许匿名访问
                 .permitAll()
-                .antMatchers("/esProduct/**","/member/readHistory/**","/order/**","/aliyun/oss/**","/sso/**")// 测试时放开
+                // 任何用户只要登陆以后就可以访问
+                .antMatchers("/esProduct/**",
+                        "/member/readHistory/**",
+                        "/order/**",
+                        "/aliyun/oss/**",
+                        "/sso/**",
+                        "/pms-brand/**")
                 .permitAll()
                 .anyRequest()// 除上面外的所有请求全部需要鉴权认证
                 .authenticated();
         // 禁用缓存
         httpSecurity.headers().cacheControl();
-        // 添加JWT filter
+        // 自定义定义过滤器顺序, 将此过滤器添加到UsernamePasswordAuthenticationFilter之前执行，
         httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         //添加自定义未授权和未登录结果返回
         httpSecurity.exceptionHandling()

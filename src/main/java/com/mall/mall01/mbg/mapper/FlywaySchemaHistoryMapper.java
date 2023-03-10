@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.FlywaySchemaHistory;
 import com.mall.mall01.mbg.model.FlywaySchemaHistoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface FlywaySchemaHistoryMapper {
     int countByExample(FlywaySchemaHistoryExample example);

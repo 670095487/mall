@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.PostTags;
 import com.mall.mall01.mbg.model.PostTagsExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PostTagsMapper {
     int countByExample(PostTagsExample example);

@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.UmsAdminRoleRelation;
 import com.mall.mall01.mbg.model.UmsAdminRoleRelationExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UmsAdminRoleRelationMapper {
     int countByExample(UmsAdminRoleRelationExample example);

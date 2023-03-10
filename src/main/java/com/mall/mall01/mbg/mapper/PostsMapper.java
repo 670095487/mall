@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.Posts;
 import com.mall.mall01.mbg.model.PostsExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PostsMapper {
     int countByExample(PostsExample example);

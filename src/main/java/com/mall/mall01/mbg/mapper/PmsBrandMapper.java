@@ -2,10 +2,10 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.PmsBrand;
 import com.mall.mall01.mbg.model.PmsBrandExample;
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 @Mapper
 public interface PmsBrandMapper {

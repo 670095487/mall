@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.CommentBlackList;
 import com.mall.mall01.mbg.model.CommentBlackListExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CommentBlackListMapper {
     int countByExample(CommentBlackListExample example);

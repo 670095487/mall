@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.Logs;
 import com.mall.mall01.mbg.model.LogsExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface LogsMapper {
     int countByExample(LogsExample example);

@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.ThemeSettings;
 import com.mall.mall01.mbg.model.ThemeSettingsExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ThemeSettingsMapper {
     int countByExample(ThemeSettingsExample example);

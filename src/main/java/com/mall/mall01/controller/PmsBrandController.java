@@ -7,8 +7,10 @@ import com.mall.mall01.service.PmsBrandService;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -28,7 +30,7 @@ public class PmsBrandController {
     }
 
     @PostMapping
-    public CommonResult<PmsBrand> createBrand(@RequestBody PmsBrand createItem) {
+    public CommonResult<PmsBrand> createBrand(@RequestBody @Validated PmsBrand createItem) {
         return CommonResult.success(pmsBrandService.createBrand(createItem));
     }
 

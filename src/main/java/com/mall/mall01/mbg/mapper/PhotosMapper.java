@@ -2,8 +2,9 @@ package com.mall.mall01.mbg.mapper;
 
 import com.mall.mall01.mbg.model.Photos;
 import com.mall.mall01.mbg.model.PhotosExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PhotosMapper {
     int countByExample(PhotosExample example);

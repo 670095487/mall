@@ -8,6 +8,7 @@ import com.mall.mall01.service.UmsAdminService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +23,9 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin")
-@Api(tags = "UmsAdminController", description = "后台用户管理")
+@Api(tags = "UmsAdminController", description = "后台用户权限管理")
 @RequiredArgsConstructor
+@Slf4j
 public class UmsAdminController {
 
     private final UmsAdminService adminService;
@@ -54,6 +56,7 @@ public class UmsAdminController {
         Map<String, String> tokenMap = new HashMap<>();
         tokenMap.put("token", token);
         tokenMap.put("tokenHead", tokenHead);
+        log.info("login successfully...");
         return CommonResult.success(tokenMap);
     }
 
@@ -62,5 +65,11 @@ public class UmsAdminController {
     public CommonResult<List<UmsPermission>> getPermissionList(@PathVariable Long adminId) {
         List<UmsPermission> permissionList = adminService.getPermissionList(adminId);
         return CommonResult.success(permissionList);
+    }
+
+    @GetMapping("/logout")
+    public CommonResult logout(){
+        adminService.logout();
+        return CommonResult.success("logout successfully");
     }
 }
